@@ -3,12 +3,16 @@
 import os
 import json
 import requests
+from dotenv import load_dotenv
 from django.http import HttpResponse
 from .data import SERVICES
 
+load_dotenv()  # ✅ Load .env variables
+
 VERIFY_TOKEN = "123"
-ACCESS_TOKEN = os.getenv("EAAJCTazSrTIBO7sQTBWge5S3yZCI4Sgy6N48iRoyfFkGYaNvpod4Npr1BvCDdQekZCJHEeqyegjrGOg0ZBZBCqlVdgboqZCWqqyH7vBgbcLkXHo6x2GH1ZAcHOcTDwaBSzZAMMJ1oC1hW36XN8xViJdGpyrcU7xX9Jvr24bZCNUZBJMWCuKVwDn37SSUgvZAlv0E3AW4bFDhSa1wbPeJR0arJwEcBy7alsiL05dOoZD")
-PHONE_NUMBER_ID = os.getenv("637322606139055")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
+
 
 PAGE_BUTTONS = {
     "page_1": [
