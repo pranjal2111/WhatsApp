@@ -81,33 +81,41 @@ def send_whatsapp_message(recipient_id, message):
 # Send button options for a page
 def send_button_page(recipient_id, page="page_1"):
     buttons = PAGE_BUTTONS.get(page, PAGE_BUTTONS["page_1"])
-    formatted_buttons = [
-        {
-            "type": "reply",
-            "reply": {
-                "id": btn["id"],
-                "title": btn["title"]
+
+    # Group buttons into chunks of 3
+    for i in range(0, len(buttons), 3):
+        chunk = buttons[i:i + 3]
+        formatted_buttons = [
+            {
+                "type": "reply",
+                "reply": {
+                    "id": btn["id"],
+                    "title": btn["title"]
+                }
+            }
+            for btn in chunk
+        ]
+
+        payload = {
+            "messaging_product": "whatsapp",
+            "to": recipient_id,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {"text": "📑 Please choose a service:"},
+                "action": {"buttons": formatted_buttons}
             }
         }
-        for btn in buttons[:3]
-    ]
-    url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
-    headers = {
-        "Authorization": f"Bearer {ACCESS_TOKEN}",
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "messaging_product": "whatsapp",
-        "to": recipient_id,
-        "type": "interactive",
-        "interactive": {
-            "type": "button",
-            "body": {"text": "📑 Please choose a service:"},
-            "action": {"buttons": formatted_buttons}
+
+        url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
+        headers = {
+            "Authorization": f"Bearer {ACCESS_TOKEN}",
+            "Content-Type": "application/json"
         }
-    }
-    response = requests.post(url, headers=headers, json=payload)
-    print("📨 WhatsApp API (button) response:", response.status_code, response.text)
+
+        response = requests.post(url, headers=headers, json=payload)
+        print("📨 WhatsApp API (button) response:", response.status_code, response.text)
+
 
 # Webhook view
 @csrf_exempt
