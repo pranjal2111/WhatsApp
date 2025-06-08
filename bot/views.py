@@ -1,19 +1,18 @@
-# bot/views.py
-
 import os
 import json
 import requests
 from dotenv import load_dotenv
 from django.http import HttpResponse
 from .data import SERVICES
+from django.views.decorators.csrf import csrf_exempt
 
-load_dotenv()  # ✅ Load .env variables
-
+# Load environment variables
+load_dotenv()
 VERIFY_TOKEN = "123"
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
-
+# Define buttons for each page
 PAGE_BUTTONS = {
     "page_1": [
         {"id": "1", "title": "1. BINN ANAMAT"},
@@ -63,6 +62,7 @@ PAGE_BUTTONS = {
     ]
 }
 
+# Send plain text message
 def send_whatsapp_message(recipient_id, message):
     url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
     headers = {
@@ -75,8 +75,10 @@ def send_whatsapp_message(recipient_id, message):
         "type": "text",
         "text": {"body": message}
     }
-    requests.post(url, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload)
+    print("📨 WhatsApp API (text) response:", response.status_code, response.text)
 
+# Send button options for a page
 def send_button_page(recipient_id, page="page_1"):
     buttons = PAGE_BUTTONS.get(page, PAGE_BUTTONS["page_1"])
     formatted_buttons = [
@@ -104,8 +106,11 @@ def send_button_page(recipient_id, page="page_1"):
             "action": {"buttons": formatted_buttons}
         }
     }
-    requests.post(url, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload)
+    print("📨 WhatsApp API (button) response:", response.status_code, response.text)
 
+# Webhook view
+@csrf_exempt
 def webhook(request):
     if request.method == "GET":
         mode = request.GET.get("hub.mode")
@@ -117,22 +122,28 @@ def webhook(request):
             return HttpResponse("Unauthorized", status=403)
 
     elif request.method == "POST":
-        data = json.loads(request.body.decode("utf-8"))
         try:
+            data = json.loads(request.body.decode("utf-8"))
+            print("🔥 Incoming webhook data:", json.dumps(data, indent=2))
+
             messages = data['entry'][0]['changes'][0]['value'].get('messages', [])
             if messages:
                 msg = messages[0]
                 sender = msg['from']
-                text = msg.get('text', {}).get('body', '').strip().lower()
 
-                # Handle text commands
-                if text in ["menu", "start", "help"]:
-                    send_button_page(sender, "page_1")
-                    return HttpResponse("EVENT_RECEIVED", status=200)
+                # Handle text messages
+                if msg.get("type") == "text":
+                    text = msg["text"].get("body", "").strip().lower()
+                    if text in ["menu", "start", "help"]:
+                        send_button_page(sender, "page_1")
+                    else:
+                        send_whatsapp_message(sender, "❓ Please type 'menu' to see available services.")
 
                 # Handle button reply
-                if msg.get("type") == "interactive":
-                    button_id = msg["interactive"]["button_reply"]["id"]
+                interactive = msg.get("interactive")
+                if interactive and interactive.get("type") == "button_reply":
+                    button_id = interactive["button_reply"]["id"]
+
                     if button_id.startswith("next_"):
                         send_button_page(sender, f"page_{button_id[-1]}")
                     elif button_id.startswith("prev_"):
@@ -144,8 +155,8 @@ def webhook(request):
                     else:
                         send_whatsapp_message(sender, "❌ Invalid option.")
         except Exception as e:
-            print("Webhook error:", str(e))
+            print("🚨 Webhook Error:", str(e))
 
-        return HttpResponse("EVENT_RECEIVED", status=200)
+        return HttpResponse("EVENT_RECEIVED", status=400)
 
     return HttpResponse("Only GET/POST supported", status=405)
