@@ -89,7 +89,7 @@ def send_button_page(recipient_id, page="page_1"):
                 "title": btn["title"]
             }
         }
-        for btn in buttons
+        for btn in buttons[:3]
     ]
     url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
     headers = {
