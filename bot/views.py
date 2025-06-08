@@ -157,6 +157,6 @@ def webhook(request):
         except Exception as e:
             print("🚨 Webhook Error:", str(e))
 
-        return HttpResponse("EVENT_RECEIVED", status=400)
+        return HttpResponse("EVENT_RECEIVED", status=200)
 
     return HttpResponse("Only GET/POST supported", status=405)
