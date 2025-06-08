@@ -9,7 +9,7 @@ from .data import SERVICES
 
 load_dotenv()  # ✅ Load .env variables
 
-VERIFY_TOKEN = "123"
+VERIFY_TOKEN = "test123"
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
