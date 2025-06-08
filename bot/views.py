@@ -112,8 +112,9 @@ def webhook(request):
         token = request.GET.get("hub.verify_token")
         challenge = request.GET.get("hub.challenge")
         if mode == "subscribe" and token == VERIFY_TOKEN:
-            return HttpResponse(challenge)
-        return HttpResponse("Token mismatch", status=403)
+            return HttpResponse(challenge, status=200)
+        else:
+            return HttpResponse("Unauthorized", status=403)
 
     elif request.method == "POST":
         data = json.loads(request.body.decode("utf-8"))
