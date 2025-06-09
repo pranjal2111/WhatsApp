@@ -126,16 +126,20 @@ def webhook(request):
 
     elif request.method == "POST":
         try:
-            data = json.loads(request.body.decode("utf-8"))
-            print("🔥 ઇનપુટ ડેટા:", json.dumps(data, indent=2))
+            raw_body = request.body.decode("utf-8")
+            print("📥 RAW BODY:", raw_body)  # Debug
 
             try:
+                data = json.loads(raw_body)
+                print("🔥 PARSED JSON:", json.dumps(data, indent=2))
+
                 entry = data.get('entry', [])[0]
                 changes = entry.get('changes', [])[0]
                 value = changes.get('value', {})
                 messages = value.get('messages', [])
+
             except Exception as e:
-                print("❌ JSON structure mismatch:", str(e))
+                print("❌ JSON parse or structure error:", str(e))
                 return HttpResponse("Bad JSON", status=400)
 
             if messages:
