@@ -3,16 +3,26 @@ import json
 import requests
 from dotenv import load_dotenv
 from django.http import HttpResponse
-from .data import SERVICES
 from django.views.decorators.csrf import csrf_exempt
+from .data import SERVICES
 
-# Load environment variables
 load_dotenv()
+
 VERIFY_TOKEN = "123"
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
-# Define buttons for each page
+# Category buttons
+CATEGORIES = {
+    "category_1": [
+        {"id": "cat_dakhalo", "title": "1. દાખલો"},
+        {"id": "cat_online", "title": "2. ઓનલાઇન ફોર્મ"},
+        {"id": "cat_sahay", "title": "3. સહાય"},
+        {"id": "cat_other", "title": "4. અન્ય સેવાઓ"},
+    ]
+}
+
+# Service buttons split into pages
 PAGE_BUTTONS = {
     "page_1": [
         {"id": "1", "title": "1. BINN ANAMAT"},
@@ -62,7 +72,7 @@ PAGE_BUTTONS = {
     ]
 }
 
-# Send plain text message
+# Send text message
 def send_whatsapp_message(recipient_id, message):
     url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
     headers = {
@@ -76,48 +86,67 @@ def send_whatsapp_message(recipient_id, message):
         "text": {"body": message}
     }
     response = requests.post(url, headers=headers, json=payload)
-    print("📨 WhatsApp API (text) response:", response.status_code, response.text)
+    print("📨 Text Msg Response:", response.status_code, response.text)
 
-# Send button options for a page
+# Send category buttons
+def send_category_options(recipient_id):
+    buttons = CATEGORIES["category_1"]
+    formatted_buttons = [
+        {
+            "type": "reply",
+            "reply": {"id": btn["id"], "title": btn["title"]}
+        }
+        for btn in buttons
+    ]
+    payload = {
+        "messaging_product": "whatsapp",
+        "to": recipient_id,
+        "type": "interactive",
+        "interactive": {
+            "type": "button",
+            "body": {"text": "📂 કૃપા કરીને કેટેગરી પસંદ કરો:"},
+            "action": {"buttons": formatted_buttons}
+        }
+    }
+    url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
+    headers = {
+        "Authorization": f"Bearer {ACCESS_TOKEN}",
+        "Content-Type": "application/json"
+    }
+    response = requests.post(url, headers=headers, json=payload)
+    print("📨 Category Btn Response:", response.status_code, response.text)
+
+# Send service list page
 def send_button_page(recipient_id, page="page_1"):
     buttons = PAGE_BUTTONS.get(page, PAGE_BUTTONS["page_1"])
-
-    # Group buttons into chunks of 3
     for i in range(0, len(buttons), 3):
         chunk = buttons[i:i + 3]
         formatted_buttons = [
             {
                 "type": "reply",
-                "reply": {
-                    "id": btn["id"],
-                    "title": btn["title"]
-                }
+                "reply": {"id": btn["id"], "title": btn["title"]}
             }
             for btn in chunk
         ]
-
         payload = {
             "messaging_product": "whatsapp",
             "to": recipient_id,
             "type": "interactive",
             "interactive": {
                 "type": "button",
-                "body": {"text": "📑 Please choose a service:"},
+                "body": {"text": "📑 કૃપા કરીને સેવા પસંદ કરો:"},
                 "action": {"buttons": formatted_buttons}
             }
         }
-
         url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
         headers = {
             "Authorization": f"Bearer {ACCESS_TOKEN}",
             "Content-Type": "application/json"
         }
-
         response = requests.post(url, headers=headers, json=payload)
-        print("📨 WhatsApp API (button) response:", response.status_code, response.text)
+        print("📨 Service Btn Response:", response.status_code, response.text)
 
-
-# Webhook view
+# Webhook endpoint
 @csrf_exempt
 def webhook(request):
     if request.method == "GET":
@@ -126,44 +155,49 @@ def webhook(request):
         challenge = request.GET.get("hub.challenge")
         if mode == "subscribe" and token == VERIFY_TOKEN:
             return HttpResponse(challenge, status=200)
-        else:
-            return HttpResponse("Unauthorized", status=403)
+        return HttpResponse("Unauthorized", status=403)
 
     elif request.method == "POST":
         try:
             data = json.loads(request.body.decode("utf-8"))
-            print("🔥 Incoming webhook data:", json.dumps(data, indent=2))
+            print("🔥 Incoming:", json.dumps(data, indent=2))
 
             messages = data['entry'][0]['changes'][0]['value'].get('messages', [])
             if messages:
                 msg = messages[0]
                 sender = msg['from']
 
-                # Handle text messages
+                # Handle plain text
                 if msg.get("type") == "text":
                     text = msg["text"].get("body", "").strip().lower()
-                    if text in ["menu", "start", "help"]:
-                        send_button_page(sender, "page_1")
+                    if text in ["hi", "start", "menu"]:
+                        send_category_options(sender)
                     else:
-                        send_whatsapp_message(sender, "❓ Please type 'menu' to see available services.")
+                        send_whatsapp_message(sender, "ℹ️ 'hi' લખીને શરૂઆત કરો.")
 
-                # Handle button reply
+                # Handle button click
                 interactive = msg.get("interactive")
                 if interactive and interactive.get("type") == "button_reply":
                     button_id = interactive["button_reply"]["id"]
 
-                    if button_id.startswith("next_"):
-                        send_button_page(sender, f"page_{button_id[-1]}")
-                    elif button_id.startswith("prev_"):
-                        send_button_page(sender, f"page_{button_id[-1]}")
+                    # Category click
+                    if button_id.startswith("cat_"):
+                        send_button_page(sender, "page_1")
+
+                    # Service selected
                     elif button_id in SERVICES:
                         service = SERVICES[button_id]
-                        reply = f"*{service['title']}*\nDocuments:\n" + "\n".join(f"• {doc}" for doc in service["documents"])
-                        send_whatsapp_message(sender, reply)
+                        docs = "\n".join(f"• {doc}" for doc in service["documents"])
+                        send_whatsapp_message(sender, f"*{service['title']}*\n📄 દસ્તાવેજો:\n{docs}")
+
+                    # Pagination
+                    elif button_id.startswith("next_") or button_id.startswith("prev_"):
+                        send_button_page(sender, f"page_{button_id[-1]}")
+
                     else:
-                        send_whatsapp_message(sender, "❌ Invalid option.")
+                        send_whatsapp_message(sender, "❌ અયોગ્ય વિકલ્પ.")
         except Exception as e:
-            print("🚨 Webhook Error:", str(e))
+            print("🚨 Error:", str(e))
 
         return HttpResponse("EVENT_RECEIVED", status=200)
 
