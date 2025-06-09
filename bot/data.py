@@ -1,271 +1,276 @@
 SERVICES = {
     "1": {
-        "title": "Binn Anamat Dakhla (બિન અનામત દાખલો)",
+        "title": "બિન અનામત દાખલો",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ",
-            "Address Proof / વેરા પહોંચ",
-            "Photo - 1 / ફોટો - ૧",
-            "Applicant's School Leaving Certificate Copy / અરજદારના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Father/Uncle's School Leaving Certificate Copy / પિતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "લાઇટ બીલ ની ઝેરોક્ષ",
+            "વેરા પહોંચ",
+            "ફોટા – ૧",
+            "અરજદારના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "પિતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ"
         ]
     },
     "2": {
-        "title": "Domicile Certificate (રહેઠાણ દાખલો)",
+        "title": "ડોમિસાઇલ પ્રમાણપત્ર",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ",
-            "Photo - 1 / ફોટા - ૧",
-            "Father's Photo - 1 / પિતાનું ફોટો - ૧",
-            "Father's Aadhaar Card Copy / પિતાનું આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Father's School Leaving Certificate Copy / પિતાનું સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "School Leaving Certificate Copy / સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Police Station Certificate / પોલીસ સ્ટેશન નો દાખલો",
-            "Birth Certificate / જન્મ દાખલો",
-            "Income Certificate / આવક દાખલો",
-            "Mark Sheets from Standard 1 to Last Attended / ધોરણ ૧ થી છેલ્લે જ્યાં સુધી ભણેલા હોય ત્યાં સુધીની માર્કશીટ"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "લાઇટ બીલ ની ઝેરોક્ષ",
+            "ફોટા – ૧",
+            "પીતાનું ફોટા – ૧",
+            "પીતાનું આધાર કાર્ડ ની ઝેરોક્ષ",
+            "પીતાનું સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "પોલીસ સ્ટેશન નો દાખલો",
+            "જન્મ દાખલો",
+            "આવક દાખલો",
+            "ધોરણ ૧ થી છેલ્લે ભણેલા સુધીની માર્કશીટ"
         ]
     },
     "3": {
-        "title": "Widow Assistance (વિધવા સહાય)",
+        "title": "વિધવા સહાય",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Income Certificate Copy / આવક દાખલા ની ઝેરોક્ષ",
-            "Age Proof - Birth Certificate/School Leaving Certificate/Government Hospital Certificate / ઉમરનો આધાર - જન્મ દાખલો / સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ / સરકારી દવાખાનાનો દાખલો",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ",
-            "Photos - 4 / ફોટા – ૪",
-            "Bank Passbook / બેન્ક પાસબુક",
-            "Husband's Death Certificate Copy / પતીના મરણનો દાખલા ની ઝેરોક્ષ",
-            "Aadhaar Card Copies of Each Dependent / દરેક વરસદાર ના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Income Certificate Copies of Each Dependent with Separate Coupons / અલગ કુપન ધરાવતા દરેક વરસદાર ના કુપન તથા આવક દાખલા ની ઝેરોક્ષ"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "આવક દાખલા ની ઝેરોક્ષ",
+            "ઉમરનો આધાર - જન્મ દાખલો / સ્કુલ લિવિંગ સર્ટી / સરકારી દવાખાનાનો દાખલો",
+            "લાઇટ બીલ ની ઝેરોક્ષ",
+            "ફોટા – ૪",
+            "બેન્ક પાસબુક",
+            "પતીના મરણનો દાખલા ની ઝેરોક્ષ",
+            "દરેક વરસદાર ના આધાર કાર્ડ ની ઝેરોક્ષ",
+            "અલગ કુપન ધરાવતા દરેક વરસદારના કુપન તથા આવક દાખલા ની ઝેરોક્ષ"
         ]
     },
     "4": {
-        "title": "Income Certificate (આવક દાખલો)",
+        "title": "આવક દાખલો",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Photo - 1 / ફોટો – ૧",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Election Card Copy / ચુંટણી કાર્ડની ઝેરોક્ષ",
-            "Address Proof / વેરા પહોંચ",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ"
+            "કુપન ની ઝેરોક્ષ",
+            "ફોટો – ૧",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "ચુંટણી કાર્ડની ઝેરોક્ષ",
+            "વેરા પહોંચ",
+            "લાઇટ બીલ ની ઝેરોક્ષ"
         ]
     },
     "5": {
-        "title": "For Girl Child Assistance (બાળકી સહાય)",
+        "title": "કન્યા સહાય",
         "documents": [
-            "Birth Certificate of the Girl Child and Aadhaar Card / બાળકીનો જન્મ દાખલો – તથા આધાર કાર્ડ",
-            "Photo of the Girl Child / બાળકીનો ફોટો",
-            "Marriage Certificate of Parents / માતા – પીતા નુ મેરેઝ સર્ટી",
-            "School Leaving Certificates of Parents / માતા - પીતા ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Coupons of Parents / માતા - પીતા ના કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copies of Parents / માતા - પીતા ના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Father's Income Certificate / પીતા નો આવક દાખલો",
-            "Bank Passbook of Mother or Father / માતા અથવા પીતા ની બેન્ક પાસબુક",
-            "Birth Certificates and Aadhaar Cards of All Previous Children / આગળના તમામ બાળકોના જન્મ દાખલા તથા આધાર કાર્ડ"
+            "બાળકીનો જન્મ દાખલો – તથા આધાર કાર્ડ",
+            "બાળકીનો ફોટો",
+            "માતા – પિતાનું મેરેઝ સર્ટી",
+            "માતા - પિતાના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "માતા - પિતાના કુપન ની ઝેરોક્ષ",
+            "માતા - પિતાના આધાર કાર્ડ ની ઝેરોક્ષ",
+            "પિતાનો આવક દાખલો",
+            "માતા અથવા પિતાની બેન્ક પાસબુક",
+            "આગળના તમામ બાળકોના જન્મ દાખલા તથા આધાર કાર્ડ"
         ]
     },
     "6": {
-        "title": "RTE (Right to Education) (શિક્ષણનો અધિકાર)",
+        "title": "આરટીઈ દાખલ",
         "documents": [
-            "Birth Certificate of the Child / બાળકનો જન્મ દાખલો",
-            "Aadhaar Card of the Child / બાળકનુ આધાર કાર્ડ",
-            "Photo of the Child / બાળકનો ફોટો",
-            "Coupon / કુપન",
-            "Aadhaar Cards of Parents / માતા - પીતા ના આધાર કાર્ડ",
-            "Father's Income Certificate / પીતા નો આવક દાખલો",
-            "Bank Passbook / બેન્ક પાસબુક",
-            "BPL Card (if applicable) / બી.પી.એલ. કાર્ડ (હોય તો)",
-            "PAN Card / પાન કાર્ડ",
-            "Caste Certificate (if applicable) / જાતી દાખલો (લાગુ પડતું હોય તો)"
+            "બાળકનો જન્મ દાખલો",
+            "બાળકનુ આધાર કાર્ડ",
+            "બાળકનો ફોટો",
+            "કુપન",
+            "માતા - પિતાના આધાર કાર્ડ",
+            "પિતાનો આવક દાખલો",
+            "બેન્ક પાસબુક",
+            "બી.પી.એલ. કાર્ડ (હોય તો)",
+            "પાન કાર્ડ",
+            "જાતી દાખલો (લાગુ પડતું હોય તો)"
         ]
     },
     "7": {
-        "title": "EBC/EWS / 10% Reservation (આર્થિક પછાત વર્ગ)",
+        "title": "EWS દાખલો",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ",
-            "Address Proof / વેરા પહોંચ",
-            "Photo - 1 / ફોટો – ૧",
-            "Father/Husband's Income Certificate / પિતા/ પતિ નો આવક દાખલો",
-            "Father's Photo - 1 / પિતા નો ફોટા – ૧",
-            "Father's Aadhaar Card Copy / પિતાના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Applicant's School Leaving Certificate Copy / અરજદારના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Father/Uncle's School Leaving Certificate Copy / પિતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "લાઇટ બીલ ની ઝેરોક્ષ",
+            "વેરા પહોંચ",
+            "ફોટા – ૧",
+            "પિતા/ પતિ નો આવક દાખલો",
+            "પિતા નો ફોટા – ૧",
+            "પિતાનો આધાર કાર્ડ ની ઝેરોક્ષ",
+            "અરજદારના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "પિતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ"
         ]
     },
     "8": {
-        "title": "Senior Citizen Assistance (વૃદ્ધ સહાય)",
+        "title": "વૃદ્ધ સહાય",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Age Proof - Birth Certificate/School Leaving Certificate/Government Hospital Certificate / ઉમરનો આધાર – જન્મ દાખલો અથવા સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ અથવા સરકારી દવાખાનાનો દાખલો",
-            "Bank Passbook / બેન્ક પાસબુક",
-            "BPL Card or BPL Certificate / બી.પી.એલ. કાર્ડ અથવા બી.પી.એલ. દાખલો",
-            "Photo - 1 / ફોટો – ૧"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "ઉમરનો આધાર – જન્મ દાખલો / સ્કુલ લિવિંગ / સરકારી દવાખાનો",
+            "બેન્ક પાસબુક",
+            "બી.પી.એલ. કાર્ડ અથવા દાખલો",
+            "ફોટો – ૧"
         ]
     },
     "9": {
-        "title": "Guardian Parent (પાલક માતા-પિતા)",
+        "title": "અભિભાવક દાખલો",
         "documents": [
-            "Child's Birth Certificate / બાળકનો જન્મ દાખલો",
-            "Child's Aadhaar Card Copy / બાળકનુ આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Child's School Bonafide Certificate / બાળકનું સ્કુલ બોનાફાઇડ",
-            "Death Certificates and Aadhaar Cards of Child's Parents / બાળકના માતા પીતાના મારણ દાખલા તથા આધાર કાર્ડ",
-            "Single Photo of the Child / બાળકનો ફોટો સિંગલ",
-            "Joint Photo of the Child with Guardian Parent / બાળકનો ફોટો પાલક માતા પીતા સાથે જોઇન્ટ માં",
-            "Joint Bank Passbook of Guardian Parent / બાળકની બેન્ક પાસબુક પાલક માતા પીતા સાથે જોઇન્ટ માં",
-            "Guardian Parent's Coupon Copy / પાલક માતા પીતા કુપન ની ઝેરોક્ષ",
-            "Guardian Parent's Aadhaar Card Copy / પાલક માતા પીતા આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Guardian Father's Income Certificate / પાલક પીતા નો આવક દાખલો",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ"
+            "બાળકનો જન્મ દાખલો",
+            "બાળકનુ આધાર કાર્ડ ની ઝેરોક્ષ",
+            "બાળકનું સ્કુલ બોનાફાઇડ",
+            "બાળકના માતા પિતાના મરણ દાખલા તથા આધાર કાર્ડ",
+            "બાળકનો ફોટો",
+            "બાળક અને પાલકનો સંયુક્ત ફોટો",
+            "બાળકની બેન્ક પાસબુક (પાલક સાથે સંયુક્ત)",
+            "પાલક માતા પિતા કુપન ની ઝેરોક્ષ",
+            "પાલક માતા પિતા આધાર કાર્ડ ની ઝેરોક્ષ",
+            "પાલક પિતાનો આવક દાખલો",
+            "લાઇટ બીલ ની ઝેરોક્ષ"
         ]
     },
     "10": {
-        "title": "Inheritance Certificate (વારસાઈ પ્રમાણપત્ર)",
+        "title": "ઉતરાધિકારી દાખલો",
         "documents": [
-            "Affidavit of the Deceased / સોગંદનામું કરનારનું",
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Death Certificate / મરણનો દાખલો",
-            "Photo - 1 / ફોટો – ૧",
-            "Aadhaar Card Copies of Each Dependent / દરેક વરસદાર ના આધાર કાર્ડ ની ઝેરોક્ષ"
+            "સોગંદનામું",
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "મરણનો દાખલો",
+            "ફોટો – ૧",
+            "દરેક વરસદાર ના આધાર કાર્ડ ની ઝેરોક્ષ"
         ]
     },
     "11": {
-        "title": "7/12/8-A for Inheritance (વારસાઈ માટે ૭/૧૨/૮-એ)",
+        "title": "વારસાઈ 7/12 દાખલો",
         "documents": [
-            "7/12/8-A Document / ૭/ ૧૨ / ૮ –અ",
-            "Inheritance Affidavit / વારસાઈ સોગંદનામું",
-            "Inheritance Certificate / વારસાઈ આંબો",
-            "Death Certificate / મરણનો દાખલો",
-            "No Encumbrance Certificate / બોજા ન હોવા અંગેનો દાખલો"
+            "૭/૧૨/૮-અ દસ્તાવેજ",
+            "વારસાઈ સોગંદનામું",
+            "વારસાઈ દાખલો",
+            "મરણનો દાખલો",
+            "બોજા ન હોવા અંગેનો દાખલો"
         ]
     },
     "12": {
-        "title": "Kumarbai's Marriage Form (કુમારબાઈના લગ્ન ફોર્મ)",
+        "title": "લગ્ન માટે કન્યાની ફોર્મ",
         "documents": [
-            "Girl's Aadhaar Card - Photo / કન્યાનું આધાર કાર્ડ  - ફોટો",
-            "Girl's Father's Aadhaar Card / કન્યાના ના પિતાનું આધાર કાર્ડ",
-            "Girl's Father's Income Certificate / કન્યાના પિતાનો આવકનો દાખલો",
-            "Girl's Caste Certificate / કન્યાનો જાતી અંગેનો દાખલો",
-            "Boy's Caste Certificate / યુવકનો જાતિનો દાખલો",
-            "Marriage Registration Certificate / લગ્નની નોંધણીનું પ્રમાણપત્ર",
-            "Bank Passbook (in Girl's Name) / બેન્ક પાસ બુક (યુવતીના નામની)",
-            "Boy's Aadhaar Card / યુવકનું આધાર કાર્ડ",
-            "Ration Card KYC Mandatory / રેશનકાર્ડ kyc ફરજીયાત",
-            "Joint Photo of Both / બંન્નેનો સંયુકત ફોટો",
-            "Copy of Marriage Registration Form / લગ્નની નોંધણી ફોર્મની નકલ"
+            "કન્યાનું આધાર કાર્ડ - ફોટો",
+            "કન્યાના પિતાનું આધાર કાર્ડ",
+            "કન્યાના પિતાનો આવકનો દાખલો",
+            "કન્યાનો જાતિ અંગેનો દાખલો",
+            "યુવકનો જાતિ દાખલો",
+            "લગ્નની નોંધણીનું પ્રમાણપત્ર",
+            "બેન્ક પાસબુક (યુવતીના નામે)",
+            "યુવકનું આધાર કાર્ડ",
+            "રેશનકાર્ડ KYC ફરજીયાત",
+            "બન્નેનો સંયુકત ફોટો",
+            "લગ્ન ફોર્મની નકલ"
         ]
     },
     "13": {
-        "title": "Non-Criminal (ગેર-અપરાધી)",
+        "title": "અપરાધમુક્ત દાખલો",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ",
-            "Father's Photo - 1 / પિતા નો ફોટા – ૧",
-            "Father's Aadhaar Card Copy / પિતાના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "School Leaving Certificate Copy / સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Father/Uncle's School Leaving Certificate Copy / પીતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Father's Income Certificate / પીતા નો આવક દાખલો",
-            "Caste Certificate / જાતી દાખલો",
-            "Address Proof / વેરા પહોંચ",
-            "Income Certificate on Panchayat Letterhead / પંચાયત ના લેટરપેડ ઉપર આવક નો દાખલો"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "લાઇટ બીલ ની ઝેરોક્ષ",
+            "પિતા નો ફોટો – ૧",
+            "પિતાના આધાર કાર્ડ ની ઝેરોક્ષ",
+            "સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "પિતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "પિતાનો આવક દાખલો",
+            "જાતિ દાખલો",
+            "વેરા પહોંચ",
+            "પંચાયતના લેટરપેડ ઉપર આવક દાખલો"
         ]
     },
     "14": {
-        "title": "Caste Certificate (જાતી પ્રમાણપત્ર)",
+        "title": "જાતિ દાખલો",
         "documents": [
-            "Coupon Copy / કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copy / આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Light Bill Copy / લાઇટ બીલ ની ઝેરોક્ષ",
-            "Address Proof / વેરા પહોંચ",
-            "Photo - 1 / ફોટા – ૧",
-            "Father's Photo - 1 / પિતા નો ફોટા – ૧",
-            "Father's Aadhaar Card Copy / પિતાના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Applicant's School Leaving Certificate Copy / અરજદારના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Father/Uncle's School Leaving Certificate Copy / પીતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ"
+            "કુપન ની ઝેરોક્ષ",
+            "આધાર કાર્ડ ની ઝેરોક્ષ",
+            "લાઇટ બીલ ની ઝેરોક્ષ",
+            "વેરા પહોંચ",
+            "ફોટો – ૧",
+            "પિતા નો ફોટો – ૧",
+            "પિતાના આધાર કાર્ડ ની ઝેરોક્ષ",
+            "અરજદારના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
+            "પિતા / કાકા / ફઇ ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ"
         ]
     },
     "15": {
-        "title": "Documents to be Submitted (જમા કરવા માટેના દસ્તાવેજો)",
+        "title": "દસ્તાવેજો સબમિટ",
         "documents": [
-            "Gender Certificate of Applicant (Economic Backward Class Applicants Need Not Submit Gender Certificate) / અરજદારની જાતિ/પેટા જાતિનો દાખલો (આર્થિક પછાતવર્ગના અરજદારે જાતિનો દાખલો જોડવાની જરૂર નથી.)",
-            "Income Certificate / આવકનો દાખલો",
-            "Residence Proof of Applicant (Any One from Aadhaar Card/Electricity Bill/License/Rent Agreement/Election Card/Ration Card) / અરજદારનો રહેઠાણનો પુરાવો (આધાર કાર્ડ/ વીજળી બિલ/ લાઇસન્સ/ ભાડાકરાર/ ચુંટણી કાર્ડ/ રેશનકાર્ડ પૈકી કોઈપણ એક)",
-            "Certified Copy of Allotment Letter if Land/Ready House Received Under Any Poverty Housing Scheme / કોઈ ગરીબી આવાસ યોજના હેઠળ જમીન/તૈયાર મકાન મળેલ હોય તે ફાળવણીના હુકમની, એલોટમેન્ટ લેટરની પ્રમાણિત નકલ.",
-            "Land Ownership Document/Title Deed/Property Document/Certificate (as applicable) / જમીન માલિકીનું આધાર/દસ્તાવેજ/અકારની પત્રક/હક પત્રક/સનદ પત્રક ( જે લાગુ પડતુ હોય તે )",
-            "Certificate from Talati or City Talati or Circle Inspector for Granting Housing Assistance to Applicant / અરજદારને મકાન સહાય મંજુર કરવા માટે ગ્રામપંચાયતના તલાટી ક્મ મંત્રી / સિટી તલાટી ક્મ મંત્રી / સર્કલ ઇન્સ્પેક્ટરે આપવાનું પ્રમાણપત્ર",
-            "Building Construction Permission Letter / મકાન બાંધકામ કરવાની રજા ચિઠ્ઠી",
-            "BPL Certificate / BPLનો દાખલો",
-            "Husband's Death Certificate (if Widow) / પતિના મરણ નો દાખલો (જો વિધવા હોય તો)",
-            "Copy of Map Indicating Area of Land on Which House is to be Built (Signed by Talati) / જે જમીન ઉપર મકાન બાંધવાનું છે, તે જમીન ના ક્ષેત્રફળ જણાવતા ચતુર્દિશા દર્શાવતા નકશા ની નકલ (તલાટી-કમ-મંત્રિશ્રિ)ની સહીવાળી.",
-            "Passbook/Cancelled Check / પાસબુક / કેન્સલ ચેક",
-            "Applicant's Photo / અરજદારના ફોટો"
+            "જાતિ/પેટા જાતિનો દાખલો (આર્થિક પછાતવર્ગના અરજદારે નહીં આપવો)",
+            "આવકનો દાખલો",
+            "રહેઠાણ પુરાવો (આધાર કાર્ડ/વીજળી બિલ/લાઇસન્સ/ભાડાકરાર/ચુંટણી કાર્ડ/રેશનકાર્ડમાંથી કોઈ એક)",
+            "ગરીબી આવાસ યોજના હેઠળ મકાન મળેલ હોય તો એલોટમેન્ટ લેટર",
+            "જમીન માલિકી દસ્તાવેજ",
+            "તલાટી/સર્કલ ઇન્સ્પેક્ટરનું પ્રમાણપત્ર",
+            "મકાન બાંધકામની મંજૂરી",
+            "BPL દાખલો",
+            "પતિના મરણનો દાખલો (વિધવા હોય તો)",
+            "તલાટીની સહીવાળું નકશું",
+            "પાસબુક/કેન્સલ ચેક",
+            "અરજદારનો ફોટો"
         ]
     },
     "16": {
-        "title": "Separate Coupon (અલગ કુપન)",
+        "title": "અલગ કૂપન",
         "documents": [
-            "Main Coupon Copy / મેઈન કુપનની ઝેરોક્ષ",
-            "Main Person's Photo / મેઈન વ્યક્તિનો ફોટો",
-            "Aadhaar Card Copies of All Listed in Main Coupon / મેઈન કુપનમાં નામ હોય તે બધાના આધાર કાર્ડ ઝેરોક્ષ",
-            "Separate Photo of Main Person / અલગ થતા મેઈન વ્યક્તિનો ફોટો",
-            "Income Certificate Copy / આવક દાખલા ની ઝેરોક્ષ",
-            "Separate Bank Passbook Copy of Main Person / અલગ થતા મેઈન વ્યક્તિની બેંક પાસબૂક ઝેરોક્ષ",
-            "Light Bill Copy / લાઇટ બીલ ઝેરોક્ષ",
-            "Address Proof Copy / વેરા પહોંચ ઝેરોક્ષ"
+            "મેઈન કૂપન ની ઝેરોક્ષ",
+            "મેઈન વ્યક્તિનો ફોટો",
+            "મેઈન કૂપન વાળા દરેક વ્યક્તિના આધાર કાર્ડ",
+            "અલગ થતી વ્યક્તિનો ફોટો",
+            "આવક દાખલા ની ઝેરોક્ષ",
+            "અલગ થતી વ્યક્તિની બેન્ક પાસબુક",
+            "લાઇટ બીલ ઝેરોક્ષ",
+            "વેરા પહોંચ ઝેરોક્ષ"
         ]
     },
     "17": {
-        "title": "Satyavadi Raja Harishchandra Posthumous Assistance Scheme (સત્યવાડી રાજા હરિશ્ચંદ્ર મરણોત્તર સહાય યોજના)",
+        "title": "સત્યવાડી રાજા હરિશ્ચંદ્ર સહાય",
         "documents": [
-            "Financial Assistance of ₹5000 for Funeral Expenses Due to Death of Family Member from Economically Weaker Section / અનુસૂચિત જાતિના લોકોની નબળી આર્થિક પરિસ્થિતિના કારણે કુટુંબમાં સભ્યનાં મૃત્યુ પ્રસંગે મરણૉત્તર ક્રિયા માટે ₹. ૫૦૦૦/- ની નાણાકીય સહાય પૂરૂ પાડવામાં આવે છે."
+            "રહેઠાણ પુરાવો",
+            "મરણનું પ્રમાણપત્ર",
+            "બેન્ક પાસબુકની પ્રથમ પાનાની નકલ/કેન્સલ ચેક",
+            "આધાર કાર્ડ",
+            "વાર્ષિક આવકનો દાખલો",
+            "જાતિનો દાખલો"
         ]
     },
     "18": {
-        "title": "Documents to be Submitted (જમા કરવા માટેના દસ્તાવેજો)",
+        "title": "લગ્ન નોંધણી",
         "documents": [
-            "Residence Proof (Any One from Electricity Bill/License/Rent Agreement/Election Card/Ration Card) / રહેઠાણનો પુરાવો (વીજળી બિલ/ લાઇસન્સ/ ભાડાકરાર/ ચુંટણી કાર્ડ/ રેશનકાર્ડ પૈકી કોઈ પણ એક)",
-            "Death Certificate / મરણનું પ્રમાણ પત્ર",
-            "Copy of First Page of Bank Passbook/Cancelled Check (in Applicant's Name) / બઁક પાસબૂકની પ્રથમ પાનાની નકલ / રદ કરેલ ચેક (અરજદારના નામનું)",
-            "Aadhaar Card / આધાર કાર્ડ",
-            "Annual Income Certificate / વાર્ષિક આવકનો દાખલો",
-            "Caste Certificate Obtained from Competent Authority / સક્ષમ અધિકારીશ્રી પાસેથી મેળવેલ જાતિ/પેટા જાતિ નો દાખલો"
+            "વર-કન્યા ના સ્કુલ લિવિંગ સર્ટી",
+            "કુપન",
+            "આધાર કાર્ડ",
+            "પિતા ના આધાર કાર્ડ",
+            "બે સાક્ષીના આધાર કાર્ડ",
+            "લગ્ન વિધી નો ફોટો",
+            "લગ્ન ફોર્મ ની નકલ"
         ]
     },
-        "19": {
-        "title": "Marriage Registration (લગ્ન નોંધણી)",
+    "19": {
+        "title": "શિષ્યવૃત્તિ",
         "documents": [
-            "School Leaving Certificates of Bride and Groom / વર- કન્યા ના સ્કુલ લિવિંગ સર્ટી ની ઝેરોક્ષ",
-            "Coupons of Bride and Groom / વર- કન્યા ના કુપન ની ઝેરોક્ષ",
-            "Aadhaar Card Copies of Bride and Groom / વર- કન્યા ના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Father's Aadhaar Card - Copy of Bride's Father's Aadhaar Card / વર- કન્યા ના પિતાનું આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Copy of Groom's Aadhaar Card / અદા નુ આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Aadhaar Card Copies of Two Witnesses / બે સાક્શી ના આધાર કાર્ડ ની ઝેરોક્ષ",
-            "Photo of the Wedding Ceremony / લગ્ન વિધી નો ફોટો",
-            "Copy of Marriage Registration Form / લગ્નની નોંધણી ફોર્મની નકલ"
+            "વિદ્યાર્થીનું આધાર કાર્ડ",
+            "વિદ્યાર્થીની બેંક પાસબુક",
+            "તમામ માર્કશીટ",
+            "જાતિનો દાખલો",
+            "સ્કુલ લીવીંગ સર્ટીફીકેટ",
+            "બોનાફાઈડ સર્ટીફીકેટ",
+            "વાલીનો આવકનો દાખલો",
+            "વિદ્યાર્થીનો ફોટો",
+            "હોસ્ટેલ ફી ની પહોચ (લાગુ પડતી હોય તો)",
+            "ફી ચુકવણી ની પહોચ",
+            "ગેપ સર્ટીફીકેટ (જોઈએ તો)"
         ]
     },
     "20": {
-        "title": "Scholarship Application for Higher Studies (Class 11 and Above) (ઉચ્ચ અભ્યાસ માટેની સ્કોલરશિપ અરજી)",
+        "title": "મુલ્યવર્ધિત શિક્ષણ સહાય",
         "documents": [
-            "Student's Aadhaar Card / વિદ્યાર્થીનું આધાર કાર્ડ",
-            "Student's Bank Passbook / વિદ્યાર્થીની બેંક પાસબુક",
-            "All Academic Mark Sheets / અભ્યાસની તમામ માર્કશીટ",
-            "Caste Certificate of the Student / વિદ્યાર્થીનો જ્ઞાતિનો દાખલો",
-            "School Leaving Certificate / સ્કુલ લીવીંગ સર્ટીફીકેટ",
-            "Bonafide Certificate from School/College / સ્કુલ/કોલેજ બોનાફાઈડ સર્ટીફીકેટ",
-            "Guardian's Income Certificate / વાલીનો આવકનો દાખલો",
-            "Student's Photo / વિદ્યાર્થીનો ફોટો",
-            "Hostel Fee Receipt (if applicable) / હોસ્ટેલફીની પહોચ (લાગુ પડતું હોય તો)",
-            "Fee Payment Receipt from School/College / સ્કુલ-કોલેજ ફી ભર્યાની પહોચ",
-            "Gap Certificate (if there is a gap of more than one year) / ગેપ સર્ટીફીકેટ 1 વર્ષથી વધુ ગેપ હોય તો"
+            "વિશિષ્ટ અભ્યાસ માટેના દાખલાઓ",
+            "વિદ્યાર્થીનો ઓળખપત્ર",
+            "સંસ્થાનું માન્યતા પત્ર",
+            "બેન્ક ખાતું",
+            "અભ્યાસક્રમ વિગત",
+            "મુલ્યવિશિષ્ટ ફી પત્તા",
+            "જાતિ અને આવકના દાખલાઓ"
         ]
     }
 }
