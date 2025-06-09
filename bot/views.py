@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from django.http import HttpResponse
 from .data import SERVICES
 from django.views.decorators.csrf import csrf_exempt
+import time
+
 
 # .env ફાઈલમાંથી વેરિએબલ લોડ કરો
 load_dotenv()
@@ -145,6 +147,9 @@ def webhook(request):
                 if msg.get("type") == "text":
                     text = msg["text"].get("body", "").strip().lower()
                     if text in ["hi", "menu", "help", "હાય", "મેનુ"]:
+                        send_whatsapp_message(sender,
+                                              "🙏 નમસ્કાર! હું તમારા સહાય માટે અહીં છું.\n\nતમારે નીચે આપેલ કેટેગરીમાંથી પસંદ કરો:")
+                        time.sleep(2)  # ✅ 2 સેકન્ડનું વિરામ
                         send_category_options(sender)
                     else:
                         send_whatsapp_message(sender, "ℹ️ કૃપા કરીને 'hi' લખી તમારા વિકલ્પો જુઓ.")
@@ -158,8 +163,11 @@ def webhook(request):
                         send_services_for_category(sender, button_id)
                     elif button_id in SERVICES:
                         service = SERVICES[button_id]
-                        reply = f"*{service['title']}*\n📋 જરૂરી દસ્તાવેજો:\n" + "\n".join(f"• {doc}" for doc in service["documents"])
+                        reply = f"*{service['title']}*\n📋 જરૂરી દસ્તાવેજો:\n" + "\n".join(
+                            f"• {doc}" for doc in service["documents"])
                         send_whatsapp_message(sender, reply)
+                        send_category_options(sender)
+
                     else:
                         send_whatsapp_message(sender, "❌ અમાન્ય વિકલ્પ.")
         except Exception as e:
