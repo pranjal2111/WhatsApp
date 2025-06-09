@@ -129,7 +129,15 @@ def webhook(request):
             data = json.loads(request.body.decode("utf-8"))
             print("🔥 ઇનપુટ ડેટા:", json.dumps(data, indent=2))
 
-            messages = data['entry'][0]['changes'][0]['value'].get('messages', [])
+            try:
+                entry = data.get('entry', [])[0]
+                changes = entry.get('changes', [])[0]
+                value = changes.get('value', {})
+                messages = value.get('messages', [])
+            except Exception as e:
+                print("❌ JSON structure mismatch:", str(e))
+                return HttpResponse("Bad JSON", status=400)
+
             if messages:
                 msg = messages[0]
                 sender = msg['from']
