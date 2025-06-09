@@ -3,32 +3,34 @@ import json
 import requests
 from dotenv import load_dotenv
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from .data import SERVICES
+from django.views.decorators.csrf import csrf_exempt
 
-# .env વેરિએબલ્સ લોડ કરો
+# .env ફાઈલમાંથી વેરિએબલ લોડ કરો
 load_dotenv()
 VERIFY_TOKEN = "123"
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 
-# કેટેગરી ક્લાસિફિકેશન (મેન્યુઅલી)
-CATEGORY_SERVICES = {
-    "cat_dakhalo": ["1", "2", "4", "10", "11", "13", "14"],
-    "cat_online": ["12", "6", "20"],
-    "cat_sahay": ["3", "5", "7", "8", "9", "15", "16", "17"],
-    "cat_other": ["18", "19"]
+# કેટેગરી વિકલ્પો
+CATEGORIES = {
+    "category_1": [
+        {"id": "cat_dakhalo", "title": "1. દાખલો"},
+        {"id": "cat_online", "title": "2. ઓનલાઇન ફોર્મ"},
+        {"id": "cat_sahay", "title": "3. સહાય"},
+        {"id": "cat_other", "title": "4. અન્ય સેવાઓ"},
+    ]
 }
 
-CATEGORIES = [
-    {"id": "cat_dakhalo", "title": "1. દાખલો"},
-    {"id": "cat_online", "title": "2. ઓનલાઇન ફોર્મ"},
-    {"id": "cat_sahay", "title": "3. સહાય"},
-    {"id": "cat_other", "title": "4. અન્ય સેવાઓ"}
-]
+# દરેક કેટેગરી મુજબ સર્વિસ બટન વિકલ્પો
+CATEGORY_SERVICES = {
+    "cat_dakhalo": ["1", "2", "4", "10", "11", "13"],
+    "cat_online": ["3", "5", "6", "7", "14", "20"],
+    "cat_sahay": ["8", "9", "12", "15", "16"],
+    "cat_other": ["17", "18", "19"]
+}
 
-# ટેક્સ્ટ મોકલવાનું
-
+# ટેક્સ્ટ મેસેજ મોકલવાનું ફંક્શન
 def send_whatsapp_message(recipient_id, message):
     url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
     headers = {
@@ -42,18 +44,19 @@ def send_whatsapp_message(recipient_id, message):
         "text": {"body": message}
     }
     response = requests.post(url, headers=headers, json=payload)
-    print("📨 Text Response:", response.status_code, response.text)
+    print("📨 ટેક્સ્ટ મોકલાયું:", response.status_code, response.text)
 
-# કેટેગરી ઓપ્શન બતાવવું
-
+# કેટેગરી વિકલ્પો બતાવવાનું
 def send_category_options(recipient_id):
-    for i in range(0, len(CATEGORIES), 3):
-        buttons = [
+    buttons = CATEGORIES["category_1"]
+    for i in range(0, len(buttons), 3):
+        chunk = buttons[i:i + 3]
+        formatted_buttons = [
             {
                 "type": "reply",
                 "reply": {"id": btn["id"], "title": btn["title"]}
             }
-            for btn in CATEGORIES[i:i + 3]
+            for btn in chunk
         ]
 
         payload = {
@@ -63,7 +66,7 @@ def send_category_options(recipient_id):
             "interactive": {
                 "type": "button",
                 "body": {"text": "📂 કૃપા કરીને કેટેગરી પસંદ કરો:"},
-                "action": {"buttons": buttons}
+                "action": {"buttons": formatted_buttons}
             }
         }
 
@@ -72,11 +75,11 @@ def send_category_options(recipient_id):
             "Authorization": f"Bearer {ACCESS_TOKEN}",
             "Content-Type": "application/json"
         }
+
         response = requests.post(url, headers=headers, json=payload)
-        print("📨 Category Response:", response.status_code, response.text)
+        print("📨 કેટેગરી બટન જવાબ:", response.status_code, response.text)
 
-# કેટેગરી મુજબ સર્વિસ બતાવવી
-
+# સેવાઓ બતાવવાનું
 def send_services_for_category(recipient_id, category_id):
     service_ids = CATEGORY_SERVICES.get(category_id, [])
     for i in range(0, len(service_ids), 3):
@@ -87,7 +90,10 @@ def send_services_for_category(recipient_id, category_id):
             if service:
                 buttons.append({
                     "type": "reply",
-                    "reply": {"id": sid, "title": service["title"][:20]}
+                    "reply": {
+                        "id": sid,
+                        "title": service["title"]
+                    }
                 })
 
         if not buttons:
@@ -109,8 +115,9 @@ def send_services_for_category(recipient_id, category_id):
             "Authorization": f"Bearer {ACCESS_TOKEN}",
             "Content-Type": "application/json"
         }
+
         response = requests.post(url, headers=headers, json=payload)
-        print("📨 Service Btn Response:", response.status_code, response.text)
+        print("📨 સેવા બટન મોકલાયું:", response.status_code, response.text)
 
 # webhook view
 @csrf_exempt
@@ -126,34 +133,23 @@ def webhook(request):
 
     elif request.method == "POST":
         try:
-            raw_body = request.body.decode("utf-8")
-            print("📥 RAW BODY:", raw_body)  # Debug
+            data = json.loads(request.body.decode("utf-8"))
+            print("🔥 ઇનપુટ ડેટા:", json.dumps(data, indent=2))
 
-            try:
-                data = json.loads(raw_body)
-                print("🔥 PARSED JSON:", json.dumps(data, indent=2))
-
-                entry = data.get('entry', [])[0]
-                changes = entry.get('changes', [])[0]
-                value = changes.get('value', {})
-                messages = value.get('messages', [])
-
-            except Exception as e:
-                print("❌ JSON parse or structure error:", str(e))
-                return HttpResponse("Bad JSON", status=400)
-
+            messages = data['entry'][0]['changes'][0]['value'].get('messages', [])
             if messages:
                 msg = messages[0]
                 sender = msg['from']
 
+                # ટેક્સ્ટ મેસેજ હેન્ડલ કરો
                 if msg.get("type") == "text":
                     text = msg["text"].get("body", "").strip().lower()
-                    if text in ["hi", "hello", "હાય", "help", "menu"]:
-                        send_whatsapp_message(sender, "🙏 નમસ્તે! આપનું સ્વાગત છે.")
+                    if text in ["hi", "menu", "help", "હાય", "મેનુ"]:
                         send_category_options(sender)
                     else:
-                        send_whatsapp_message(sender, "ℹ️ કૃપા કરીને 'hi' લખી શરૂ કરો.")
+                        send_whatsapp_message(sender, "ℹ️ કૃપા કરીને 'hi' લખી તમારા વિકલ્પો જુઓ.")
 
+                # બટન રિપ્લાય હેન્ડલ કરો
                 interactive = msg.get("interactive")
                 if interactive and interactive.get("type") == "button_reply":
                     button_id = interactive["button_reply"]["id"]
@@ -162,14 +158,12 @@ def webhook(request):
                         send_services_for_category(sender, button_id)
                     elif button_id in SERVICES:
                         service = SERVICES[button_id]
-                        docs = "\n".join(f"• {doc}" for doc in service["documents"])
-                        reply = f"*{service['title']}*\n📋 જરૂરી દસ્તાવેજો:\n{docs}"
+                        reply = f"*{service['title']}*\n📋 જરૂરી દસ્તાવેજો:\n" + "\n".join(f"• {doc}" for doc in service["documents"])
                         send_whatsapp_message(sender, reply)
                     else:
-                        send_whatsapp_message(sender, "❌ માન્ય વિકલ્પ મળ્યો નથી.")
-
+                        send_whatsapp_message(sender, "❌ અમાન્ય વિકલ્પ.")
         except Exception as e:
-            print("🚨 Webhook Error:", str(e))
+            print("🚨 Webhook ભૂલ:", str(e))
 
         return HttpResponse("EVENT_RECEIVED", status=200)
 
