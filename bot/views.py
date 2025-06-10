@@ -124,14 +124,14 @@ def send_services_for_category(recipient_id, category_id):
 # webhook view
 @csrf_exempt
 def webhook(request):
-    if request.method == "GET":
+    if request.method == 'GET':
         mode = request.GET.get("hub.mode")
         token = request.GET.get("hub.verify_token")
         challenge = request.GET.get("hub.challenge")
         if mode == "subscribe" and token == VERIFY_TOKEN:
             return HttpResponse(challenge, status=200)
-        else:
-            return HttpResponse("Unauthorized", status=403)
+        return HttpResponse("Invalid token", status=403)
+
 
     elif request.method == "POST":
         try:
