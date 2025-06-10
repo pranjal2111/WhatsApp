@@ -3,3 +3,4 @@ Django==5.2.2
 sqlparse==0.5.3
 gunicorn
 python-dotenv
+requests
