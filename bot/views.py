@@ -51,33 +51,35 @@ def send_whatsapp_message(recipient_id, message):
 # કેટેગરી વિકલ્પો બતાવવાનું
 def send_category_options(recipient_id):
     buttons = CATEGORIES["category_1"]
-    formatted_buttons = [
-        {
-            "type": "reply",
-            "reply": {"id": btn["id"], "title": btn["title"]}
+    for i in range(0, len(buttons), 3):
+        chunk = buttons[i:i + 3]
+        formatted_buttons = [
+            {
+                "type": "reply",
+                "reply": {"id": btn["id"], "title": btn["title"]}
+            }
+            for btn in chunk
+        ]
+
+        payload = {
+            "messaging_product": "whatsapp",
+            "to": recipient_id,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {"text": "📂 કૃપા કરીને કેટેગરી પસંદ કરો:"},
+                "action": {"buttons": formatted_buttons}
+            }
         }
-        for btn in buttons
-    ]
 
-    payload = {
-        "messaging_product": "whatsapp",
-        "to": recipient_id,
-        "type": "interactive",
-        "interactive": {
-            "type": "button",
-            "body": {"text": "📂 કૃપા કરીને કેટેગરી પસંદ કરો:"},
-            "action": {"buttons": formatted_buttons}
+        url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
+        headers = {
+            "Authorization": f"Bearer {ACCESS_TOKEN}",
+            "Content-Type": "application/json"
         }
-    }
 
-    url = f"https://graph.facebook.com/v19.0/{PHONE_NUMBER_ID}/messages"
-    headers = {
-        "Authorization": f"Bearer {ACCESS_TOKEN}",
-        "Content-Type": "application/json"
-    }
-
-    response = requests.post(url, headers=headers, json=payload)
-    print("📨 કેટેગરી બટન મોકલાયું:", response.status_code, response.text)
+        response = requests.post(url, headers=headers, json=payload)
+        print("📨 કેટેગરી બટન જવાબ:", response.status_code, response.text)
 
 # સેવાઓ બતાવવાનું
 def send_services_for_category(recipient_id, category_id):
